@@ -1,0 +1,47 @@
+.pedigree-graph {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.pedigree-graph:active {
+  cursor: grabbing;
+}
+
+.pedigree-graph .links line {
+  stroke-opacity: 0.8;
+  transition: stroke 0.2s ease;
+}
+
+.pedigree-graph .nodes rect {
+  cursor: pointer;
+  transition: transform 0.2s ease, stroke 0.2s ease, fill 0.2s ease;
+  rx: 6; /* скругление углов */
+}
+
+.pedigree-graph .nodes rect:hover {
+  transform: scale(1.15);
+  stroke: #000;
+}
+
+.pedigree-graph .nodes text {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 11px;
+  fill: #333;
+  pointer-events: none; /* текст не мешает клику */
+}
+
+.pedigree-graph .legend {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 12px;
+  fill: #333;
+}
+
+.pedigree-graph .legend rect {
+  stroke: #444;
+  rx: 3;
+}

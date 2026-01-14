@@ -1,0 +1,267 @@
+/* Подключение шрифта Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* Основной контейнер панели */
+.dashboard-container {
+  font-family: "Inter", sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  color: #2d3748;
+}
+
+/* Верхняя панель */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #e6e9f0;
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1f2937;
+}
+
+.dashboard-logout {
+  background: #ef4444;
+  color: white;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dashboard-logout:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Общие блоки */
+.dashboard-section {
+  background: white;
+  border: 1px solid #e6e9f0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-section:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #2d3748;
+}
+
+/* Сетка для полей */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* Поля ввода */
+.dashboard-input,
+.dashboard-select,
+.dashboard-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.dashboard-input:focus,
+.dashboard-select:focus,
+.dashboard-textarea:focus {
+  border-color: #60a5fa;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+  outline: none;
+}
+
+.dashboard-textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Чекбоксы */
+.dashboard-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dashboard-checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+.dashboard-checkbox-group input[type="checkbox"] {
+  margin-right: 6px;
+  accent-color: #3b82f6;
+}
+
+/* Основные кнопки */
+.dashboard-button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dashboard-button:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.25);
+}
+
+.dashboard-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Цветовые вариации */
+.dashboard-button-green {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.dashboard-button-green:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.dashboard-button-purple {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.dashboard-button-purple:hover {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+/* Переключатели и навигация */
+.dashboard-toggle-group {
+  display: flex;
+  gap: 12px;
+}
+
+.dashboard-toggle {
+  padding: 10px 14px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dashboard-toggle:hover {
+  background: #e5e7eb;
+}
+
+/* Сообщения */
+.dashboard-message {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.dashboard-message.success {
+  color: #10b981;
+}
+
+.dashboard-message.error {
+  color: #ef4444;
+}
+
+/* Генограмма */
+.pedigree-container h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.dashboard-message {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.dashboard-message-success {
+  background-color: #e6ffed;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.dashboard-message-error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.toast-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  animation: fadein 0.3s ease, fadeout 0.3s ease 2.7s;
+  color: #fff;
+}
+
+.toast-success {
+  background-color: #4caf50; /* зелёный */
+}
+
+.toast-error {
+  background-color: #f44336; /* красный */
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to   { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+

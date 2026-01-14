@@ -1,0 +1,167 @@
+/* Подключение шрифта Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* Общая оболочка */
+.auth-container {
+  background: #ffffff;
+  border: 1px solid #e6e9f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-container:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Заголовки */
+.auth-container h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #2d3748;
+  text-align: center;
+}
+
+/* Поля ввода */
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: all 0.2s;
+}
+
+.auth-input:focus {
+  border-color: #60a5fa;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+  outline: none;
+}
+
+/* Селект */
+.auth-select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: all 0.2s;
+}
+
+.auth-select:focus {
+  border-color: #60a5fa;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+  outline: none;
+}
+
+/* Кнопка */
+.auth-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.auth-button:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.25);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Сообщения */
+.auth-message {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: #10b981;
+  text-align: center;
+  font-weight: 500;
+}
+
+.auth-error {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: #ef4444;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Убираем переполнение */
+.auth-input,
+.auth-select,
+.auth-button {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Верхний блок (Hero) */
+.hero-header {
+  width: 100%;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  text-align: center;
+  padding: 50px 20px 40px;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-logo {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.hero-title {
+  font-family: "Inter", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  opacity: 0.92;
+  margin-top: 8px;
+}
+
+/* Обертка для форм */
+.auth-wrapper {
+  margin-top: -40px; /* Подняли блок форм на фон хедера */
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 20px 40px;
+}
