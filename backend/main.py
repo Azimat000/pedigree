@@ -28,10 +28,10 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # Разрешить ВСЕ домены
     allow_credentials=True,
-    allow_methods=["*"],  # Разрешить все методы
-    allow_headers=["*"],  # Разрешить все заголовки
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Allow local frontend
