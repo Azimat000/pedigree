@@ -19,12 +19,17 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Pedigree MVP API")
 
-# ВАЖНО: Добавляем middleware ПЕРВЫМ делом, сразу после создания app
+origins = [
+    "http://localhost:3000",                   # Для локальной разработки
+    "http://127.0.0.1:3000",                   # Альтернативный локальный адрес
+    "https://pedigree-1.onrender.com",         # Ваш фронтенд на Render (без слэша в конце!)
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Разрешаем все origins
+    allow_origins=origins,                     # Явный список доменов
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    allow_methods=["*"],                       # Методы можно оставить "все"
     allow_headers=["*"],
     expose_headers=["*"],
 )
