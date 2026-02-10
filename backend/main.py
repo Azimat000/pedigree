@@ -6,9 +6,8 @@ from . import models, schemas, crud, auth
 from .database import SessionLocal, engine, Base
 from datetime import datetime, timedelta
 from typing import List
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware  # ОДИН импорт
 import os
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Path
 from typing import Optional
 from fastapi import Query
@@ -20,12 +19,14 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Pedigree MVP API")
 
+# ВАЖНО: Добавляем middleware ПЕРВЫМ делом, сразу после создания app
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # На время тестирования
+    allow_origins=["*"],  # Разрешаем все origins
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 def get_db():
