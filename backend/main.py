@@ -48,6 +48,56 @@ def get_db():
     finally:
         db.close()
 
+# Корневой эндпоинт
+@app.get("/")
+def read_root():
+    return {
+        "message": "Pedigree MVP API",
+        "version": "1.0.0",
+        "service": "backend",
+        "status": "running",
+        "timestamp": datetime.utcnow().isoformat(),
+        "documentation": {
+            "swagger": "/docs",
+            "redoc": "/redoc"
+        },
+        "endpoints": {
+            "auth": {
+                "register": "POST /register",
+                "login": "POST /token",
+                "current_user": "GET /users/me"
+            },
+            "patients": {
+                "list": "GET /patients",
+                "create": "POST /patients",
+                "get": "GET /patients/{id}",
+                "update": "PUT /patients/{id}",
+                "delete": "DELETE /patients/{id}"
+            },
+            "pedigree": "GET /pedigree/{patient_id}"
+        }
+    }
+
+# Health check для Render
+@app.get("/health")
+def health_check():
+    try:
+        # Проверяем подключение к базе данных
+        db = SessionLocal()
+        db.execute("SELECT 1")
+        db.close()
+        db_status = "connected"
+    except Exception as e:
+        db_status = f"error: {str(e)}"
+    
+    return {
+        "status": "healthy",
+        "service": "pedigree-backend",
+        "database": db_status,
+        "timestamp": datetime.utcnow().isoformat(),
+        "environment": os.getenv("ENVIRONMENT", "production")
+    }
+
 @app.post("/register", response_model=schemas.UserOut)
 def register(user_in: schemas.UserCreate, db: Session = Depends(get_db)):
     existing = crud.get_user_by_email(db, user_in.email)
