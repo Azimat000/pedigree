@@ -38,6 +38,7 @@ interface PatientModalProps {
 
 const PatientModal: React.FC<PatientModalProps> = ({ patientId, onClose, onSaved }) => {
   const [patient, setPatient] = useState<Patient | null>(null);
+  const API_URL = process.env.REACT_APP_API_URL || "https://pedigree-8b1w.onrender.com";
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
 
@@ -46,7 +47,7 @@ const PatientModal: React.FC<PatientModalProps> = ({ patientId, onClose, onSaved
 
     setLoading(true);
     axios
-      .get(`http://localhost:8000/patients/${patientId}`, {
+      .get(`${API_URL}/patients/${patientId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -66,7 +67,7 @@ const PatientModal: React.FC<PatientModalProps> = ({ patientId, onClose, onSaved
     if (!window.confirm("Удалить пациента безвозвратно?")) return;
 
     axios
-      .delete(`http://localhost:8000/patients/${patient.id}`, {
+      .delete(`${API_URL}/patients/${patientId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -83,7 +84,7 @@ const PatientModal: React.FC<PatientModalProps> = ({ patientId, onClose, onSaved
     setSaving(true);
 
     axios
-      .put(`http://localhost:8000/patients/${patient.id}`, patient, {
+      .put(`${API_URL}/patients/${patientId}`, patient, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
