@@ -20,16 +20,18 @@ app = FastAPI(title="Pedigree MVP API")
 
 origins = [
     "http://localhost:3000",
-    "https://pedigree-1.onrender.com",
-    "https://*.onrender.com"
+    "https://pedigree-8b1w.onrender.com",  # ваш бэкенд
+    "https://pedigree-1.onrender.com",     # ваш фронтенд - ДОБАВЬТЕ ЭТО!
+    "https://pedigree-*.onrender.com",     # или все поддомены render
+    "https://*.onrender.com",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Разрешить все методы
+    allow_headers=["*"],  # Разрешить все заголовки
 )
 
 # Allow local frontend
