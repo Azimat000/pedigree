@@ -20,37 +20,12 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Pedigree MVP API")
 
-# Создаем собственный middleware который точно работает
-@app.middleware("http")
-async def custom_cors_middleware(request: Request, call_next):
-    # Если это OPTIONS запрос (preflight), возвращаем ответ сразу
-    if request.method == "OPTIONS":
-        response = JSONResponse(
-            content={"message": "CORS preflight"},
-            status_code=200
-        )
-    else:
-        response = await call_next(request)
-    
-    # Добавляем CORS заголовки ко всем ответам
-    origin = request.headers.get("origin", "*")
-    response.headers["Access-Control-Allow-Origin"] = origin
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS, PATCH"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, Accept, Origin, X-Requested-With"
-    response.headers["Access-Control-Allow-Credentials"] = "true"
-    response.headers["Access-Control-Max-Age"] = "86400"
-    
-    return response
-
-# Стандартный middleware для дополнительной надежности
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # На время тестирования
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["*"],
-    max_age=86400,
 )
 
 def get_db():
