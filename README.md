@@ -44,8 +44,8 @@ Pedigree MVP — это веб-приложение для построения 
 
 #### 1.1 Клонирование проекта
 ```bash
-git clone <repository-url>
-cd pedigree-mvp
+git clone https://github.com/Azimat000/pedigree.git
+cd pedigree
 ```
 
 #### 1.2 Создание виртуального окружения Python
@@ -161,7 +161,6 @@ pedigree-mvp/
 │   ├── schemas.py          # Pydantic схемы
 │   ├── crud.py             # Операции с БД
 │   ├── auth.py             # Аутентификация
-│   └── requirements.txt    # Python зависимости
 ├── frontend/
 │   ├── src/
 │   │   ├── components/     # React компоненты
@@ -172,34 +171,7 @@ pedigree-mvp/
 ├── create_tables.sql      # SQL для создания таблиц
 ├── .env                  # Переменные окружения
 └── README.md            # Эта документация
-```
-
-### Роли пользователей:
-1. **researcher** (по умолчанию) — может добавлять/редактировать пациентов
-2. **doctor** — просмотр данных
-3. **admin** — полный доступ + управление пользователями
-
----
-
-## 🧪 Тестовые данные
-
-### Создание первого пользователя (через API):
-```bash
-curl -X POST "http://localhost:8000/register" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "admin@example.com",
-    "password": "admin123",
-    "full_name": "Администратор",
-    "role": "admin"
-  }'
-```
-
-### Логин:
-```bash
-curl -X POST "http://localhost:8000/token" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=admin@example.com&password=admin123"
+└── requirements.txt    # Python зависимости
 ```
 
 ---
@@ -283,27 +255,6 @@ npm install
 alembic init migrations
 alembic revision --autogenerate -m "Initial migration"
 alembic upgrade head
-```
-
-### Запуск тестов:
-```bash
-# Бэкенд
-pytest backend/tests/
-
-# Фронтенд
-cd frontend
-npm test
-```
-
-### Сборка для продакшена:
-```bash
-# Фронтенд
-cd frontend
-npm run build
-
-# Бэкенд (с помощью Docker)
-docker build -t pedigree-backend .
-docker run -p 8000:8000 pedigree-backend
 ```
 
 ---
