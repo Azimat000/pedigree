@@ -1,5 +1,5 @@
 // frontend/src/api.ts
-const API_BASE = "http://localhost:8000";
+const API_BASE = process.env.REACT_APP_API_URL || "https://pedigree-8b1w.onrender.com";
 
 export async function register(
   email: string,
