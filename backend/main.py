@@ -20,7 +20,8 @@ app = FastAPI(title="Pedigree MVP API")
 
 origins = [
     "http://localhost:3000",
-    "https://pedigree-1.onrender.com"
+    "https://pedigree-1.onrender.com",
+    "https://*.onrender.com"
 ]
 
 app.add_middleware(
